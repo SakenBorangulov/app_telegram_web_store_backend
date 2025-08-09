@@ -55,7 +55,10 @@ app.post("/web-data", async ( req, res) => {
       id: queryId,
       title: "Successfull Purchase",
       input_message_content: {
-        message_text: `Congrats with purchase, you have purchased goods totaling ${totalPrice}`
+        message_text: `
+          Congrats with purchase, you have purchased goods totaling ${totalPrice}
+          ${products.map(item => item.title).join(", ")}
+        `
       }
     })
     return res.status(200).json({})
