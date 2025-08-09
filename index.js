@@ -48,14 +48,14 @@ bot.on("message", async (msg) => {
 })
 
 app.post("/web-data", async ( req, res) => {
-  const { queryId, products, totoalPrice } = req.body;
+  const { queryId, products, totalPrice } = req.body;
   try {
     await bot.answerWebAppQuery(queryId, {
       type: "article",
       id: queryId,
       title: "Successfull Purchase",
       input_message_content: {
-        message_text: `Congrats with purchase, you have purchased goods totaling ${totoalPrice}`
+        message_text: `Congrats with purchase, you have purchased goods totaling ${totalPrice}`
       }
     })
     return res.status(200).json({})
